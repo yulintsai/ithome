@@ -8,6 +8,7 @@ steps:
   when:
     branch: 
     - test
+    - master
   commands:
     - go test
 
