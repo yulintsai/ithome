@@ -7,6 +7,7 @@ steps:
   image: golang
   commands:
   - docker build --no-cache --pull --force-rm -t rain/ithome:latest -f go.dockerfile .
+  privileged: true
   volumes:
   - name: docker
     path: /var/run/docker.sock
