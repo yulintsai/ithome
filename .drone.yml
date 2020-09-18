@@ -4,6 +4,9 @@ name: backend
 
 steps:
 - name: test
+  when:
+    branch: 
+    - master
   image: docker:dind
   volumes:
   - name: dockersock
