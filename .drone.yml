@@ -5,6 +5,10 @@ name: backend
 steps:
 - name: golang test
   image: golang
+  when:
+    branch: 
+    - test
+    - master
   commands:
-    - echo hello drone
+    - go test
 
