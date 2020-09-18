@@ -3,16 +3,15 @@ type: docker
 name: backend
 
 steps:
-- name: golang test
-  image: golang
-  commands:
-  - docker build --no-cache --pull --force-rm -t rain/ithome:latest -f go.dockerfile .
-  privileged: true
+- name: test
+  image: docker:dind
   volumes:
-  - name: docker
+  - name: dockersock
     path: /var/run/docker.sock
+  commands:
+  - docker ps -a
 
-# volumes:
-# - name: docker
-#   host:
-#     path: /var/run/docker.sock
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
