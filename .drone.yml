@@ -4,7 +4,7 @@ name: backend
 
 steps:
 - name: test
-  image: golang
+  image: docker:dind
   volumes:
   - name: dockersock
     path: /var/run/docker.sock
