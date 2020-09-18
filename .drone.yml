@@ -8,8 +8,3 @@ steps:
     CGO_ENABLED: "0"
   commands:
     - go test -cover
-
-volumes:
-- name: docker
-  host:
-    path: /var/run/docker.sock
