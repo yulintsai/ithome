@@ -5,10 +5,13 @@ name: backend
 steps:
 - name: golang test
   image: golang
-  when:
-    branch: 
-    - test
-    - master
   commands:
-    - go test
+  - docker build --no-cache --pull --force-rm -t rain/ithome:latest -f go.dockerfile .
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
 
+volumes:
+- name: docker
+  host:
+    path: /var/run/docker.sock
