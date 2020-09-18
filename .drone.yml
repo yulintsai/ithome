@@ -1,12 +1,9 @@
 kind: pipeline
-type: docker
+type: exec
 name: backend
 
 steps:
-- name: golang test
-  image: golang:1.14-alpine
-  environment:
-    CGO_ENABLED: "0"
+- name: practice
   commands:
-    - go test -cover
+    - echo "hello drone"
 
