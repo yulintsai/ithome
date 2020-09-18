@@ -9,3 +9,4 @@ steps:
     CGO_ENABLED: "0"
   commands:
     - go test -cover
+
