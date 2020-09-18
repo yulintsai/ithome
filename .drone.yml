@@ -4,15 +4,16 @@ name: backend
 
 steps:
 - name: test
-  when:
-    branch: 
-    - master
   image: docker:dind
   volumes:
   - name: dockersock
     path: /var/run/docker.sock
   commands:
   - docker build --no-cache --pull --force-rm -t rain/ithome:latest -f go.dockerfile .
+
+trigger:
+  event:
+  - tag
 
 volumes:
 - name: dockersock
