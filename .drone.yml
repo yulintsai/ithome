@@ -3,19 +3,24 @@ type: docker
 name: backend
 
 steps:
-- name: test
-  image: docker:dind
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
+- name: make file to volumes path
+  image: golang
   commands:
-  - docker build --no-cache --pull --force-rm -t rain/ithome:latest -f go.dockerfile .
+    - echo hello drone > hi.txt
 
-trigger:
-  event:
-  - tag
+  volumes:
+  - name: tmp_dir
+    path: /tmp
+
+- name: check volumes file
+  image: golang
+  commands:
+    - ls
+  volumes:
+  - name: tmp_dir
+    path: /tmp
 
 volumes:
-- name: dockersock
+- name: tmp_dir
   host:
-    path: /var/run/docker.sock
+    path: /tmp
