@@ -3,10 +3,10 @@ type: docker
 name: backend
 
 steps:
-- name: make file to volumes path
+- name: practice make file
   image: golang
   commands:
-    - echo hello drone > hi.txt
+    - echo hello drone > /tmp/hi.txt
 
   volumes:
   - name: tmp_dir
@@ -15,7 +15,7 @@ steps:
 - name: check volumes file
   image: golang
   commands:
-    - ls
+    - ls /tmp
   volumes:
   - name: tmp_dir
     path: /tmp
