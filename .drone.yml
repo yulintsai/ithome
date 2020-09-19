@@ -6,45 +6,18 @@ clone:
   disable: true
 
 steps:
-- name: practice
+- name: steps 01
   image: golang
   commands:
-    - echo hello drone pipeline-01
+    - echo hello drone steps 01
     - ls abcdefg
 
----
-
-kind: pipeline
-type: docker
-name: pipeline-02
-
-clone:
-  disable: true
-
-steps:
-- name: practice
+- name: steps 02
   image: golang
   commands:
-    - echo hello drone pipeline-02
+    - echo hello drone steps 02
 
-depends_on:
-- pipeline-01
-
----
-
-kind: pipeline
-type: docker
-name: pipeline-03
-
-
-clone:
-  disable: true
-
-steps:
-- name: practice
+- name: steps 03
   image: golang
   commands:
-    - echo hello drone pipeline-03
-
-depends_on:
-- pipeline-02
+    - echo hello drone steps 03
