@@ -8,6 +8,7 @@ clone:
 steps:
 - name: steps 01
   image: golang
+  failure: ignore
   commands:
     - echo hello drone steps 01
     - ls abcdefg
