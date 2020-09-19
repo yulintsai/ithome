@@ -2,6 +2,9 @@ kind: pipeline
 type: docker
 name: pipeline-01
 
+clone:
+  disable: true
+
 steps:
 - name: practice
   image: golang
@@ -13,6 +16,9 @@ steps:
 kind: pipeline
 type: docker
 name: pipeline-02
+
+clone:
+  disable: true
 
 steps:
 - name: practice
@@ -28,6 +34,10 @@ depends_on:
 kind: pipeline
 type: docker
 name: pipeline-03
+
+
+clone:
+  disable: true
 
 steps:
 - name: practice
