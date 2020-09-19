@@ -3,25 +3,71 @@ type: docker
 name: backend
 
 steps:
-- name: practice make file
+- name: show environment
   image: golang
   commands:
-    - ls /tmp
-    - echo hello drone > /tmp/hi.txt
-
-  volumes:
-  - name: mylog
-    path: /tmp
-
-- name: check volumes file
-  image: golang
-  commands:
-    - ls /tmp
-  volumes:
-  - name: mylog
-    path: /tmp
-
-volumes:
-- name: mylog
-  host:
-    path: /tmp
+    - echo "${DRONE_BUILD_ACTION}"
+    - echo "${DRONE_BUILD_CREATED}"
+    - echo "${DRONE_BUILD_EVENT}"
+    - echo "${DRONE_BUILD_FINISHED}"
+    - echo "${DRONE_BUILD_NUMBER}"
+    - echo "${DRONE_BUILD_PARENT}"
+    - echo "${DRONE_BUILD_STARTED}"
+    - echo "${DRONE_BUILD_STATUS}"
+    - echo "${DRONE_COMMIT}"
+    - echo "${DRONE_COMMIT_AFTER}"
+    - echo "${DRONE_COMMIT_AUTHOR}"
+    - echo "${DRONE_COMMIT_AUTHOR_AVATAR}"
+    - echo "${DRONE_COMMIT_AUTHOR_EMAIL}"
+    - echo "${DRONE_COMMIT_AUTHOR_NAME}"
+    - echo "${DRONE_COMMIT_BEFORE}"
+    - echo "${DRONE_COMMIT_BRANCH}"
+    - echo "${DRONE_COMMIT_LINK}"
+    - echo "${DRONE_COMMIT_MESSAGE}"
+    - echo "${DRONE_COMMIT_REF}"
+    - echo "${DRONE_COMMIT_SHA}"
+    - echo "${DRONE_DEPLOY_TO}"
+    - echo "${DRONE_FAILED_STAGES}"
+    - echo "${DRONE_FAILED_STEPS}"
+    - echo "${DRONE_GIT_HTTP_URL}"
+    - echo "${DRONE_GIT_SSH_URL}"
+    - echo "${DRONE_PULL_REQUEST}"
+    - echo "${DRONE_REMOTE_URL}"
+    - echo "${DRONE_REPO}"
+    - echo "${DRONE_REPO_BRANCH}"
+    - echo "${DRONE_REPO_LINK}"
+    - echo "${DRONE_REPO_NAME}"
+    - echo "${DRONE_REPO_NAMESPACE}"
+    - echo "${DRONE_REPO_OWNER}"
+    - echo "${DRONE_REPO_PRIVATE}"
+    - echo "${DRONE_REPO_SCM}"
+    - echo "${DRONE_REPO_VISIBILITY}"
+    - echo "${DRONE_SEMVER}"
+    - echo "${DRONE_SEMVER_BUILD}"
+    - echo "${DRONE_SEMVER_ERROR}"
+    - echo "${DRONE_SEMVER_MAJOR}"
+    - echo "${DRONE_SEMVER_MINOR}"
+    - echo "${DRONE_SEMVER_PATCH}"
+    - echo "${DRONE_SEMVER_PRERELEASE}"
+    - echo "${DRONE_SEMVER_SHORT}"
+    - echo "${DRONE_SOURCE_BRANCH}"
+    - echo "${DRONE_STAGE_ARCH}"
+    - echo "${DRONE_STAGE_DEPENDS_ON}"
+    - echo "${DRONE_STAGE_FINISHED}"
+    - echo "${DRONE_STAGE_KIND}"
+    - echo "${DRONE_STAGE_MACHINE}"
+    - echo "${DRONE_STAGE_NAME}"
+    - echo "${DRONE_STAGE_NUMBER}"
+    - echo "${DRONE_STAGE_OS}"
+    - echo "${DRONE_STAGE_STARTED}"
+    - echo "${DRONE_STAGE_STATUS}"
+    - echo "${DRONE_STAGE_TYPE}"
+    - echo "${DRONE_STAGE_VARIANT}"
+    - echo "${DRONE_STEP_NAME}"
+    - echo "${DRONE_STEP_NUMBER}"
+    - echo "${DRONE_SYSTEM_HOST}"
+    - echo "${DRONE_SYSTEM_HOSTNAME}"
+    - echo "${DRONE_SYSTEM_PROTO}"
+    - echo "${DRONE_SYSTEM_VERSION}"
+    - echo "${DRONE_TAG}"
+    - echo "${DRONE_TARGET_BRANCH}"
