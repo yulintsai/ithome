@@ -6,10 +6,11 @@ steps:
 - name: practice make file
   image: golang
   commands:
+    - ls /tmp
     - echo hello drone > /tmp/hi.txt
 
   volumes:
-  - name: tmp_dir
+  - name: mylog
     path: /tmp
 
 - name: check volumes file
@@ -17,10 +18,10 @@ steps:
   commands:
     - ls /tmp
   volumes:
-  - name: tmp_dir
+  - name: mylog
     path: /tmp
 
 volumes:
-- name: tmp_dir
+- name: mylog
   host:
     path: /tmp
