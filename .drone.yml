@@ -7,18 +7,17 @@ steps:
     image: scylladb/scylla:3.3.4
     commands:
     - sleep 20
-    - cqlsh -e "SHOW VERSION" scylladb
+    - cqlsh -e "SHOW VERSION" cassandra
 
 services:
-  - name: scylladb
+  - name: cassandra
+    image: scylladb/scylla:3.3.4
+    command: ["--listen-address", "cassandra"]
+  - name: cassandra-2
     image: scylladb/scylla:3.3.4
     command: 
-    - --listen-address=scylladb
-  - name: scylladb2
+    - --seeds=cassandra
+  - name: cassandra-3
     image: scylladb/scylla:3.3.4
     command: 
-    - --seeds=scylladb
-  - name: scylladb3
-    image: scylladb/scylla:3.3.4
-    command: 
-    - --seeds=scylladb
+    - --seeds=cassandra
