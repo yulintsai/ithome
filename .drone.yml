@@ -9,7 +9,7 @@ steps:
     - sleep 10
     - mysql -hmysqlhost -uroot -proot
 
-  - name: ping mysql
+  - name: detach test
     image: mysql:5.5
     detach: true
     commands:
