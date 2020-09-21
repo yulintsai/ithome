@@ -12,5 +12,6 @@ steps:
 services:
   - name: scylladb
     image: scylladb/scylla:4.1.6
-    commands:
-    - --experimental 1
+    build_args:
+    - --experimental
+    - "1"
