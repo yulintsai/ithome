@@ -7,7 +7,7 @@ steps:
     image: scylladb/scylla:3.3.4
     commands:
     - sleep 20
-    - cqlsh scylladb -e SHOW VERSION
+    - cqlsh -e "SHOW VERSION" scylladb
 
 services:
   - name: scylladb
