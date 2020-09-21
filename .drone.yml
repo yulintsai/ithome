@@ -12,4 +12,11 @@ steps:
 services:
   - name: scylladb
     image: scylladb/scylla:3.3.4
-    command: ["--experimental", "1", "--smp", "1", "--cpuset", "1", "--listen-address", "scylladb"]
+  - name: scylladb2
+    image: scylladb/scylla:3.3.4
+    command: 
+    - --seeds=scylladb
+  - name: scylladb3
+    image: scylladb/scylla:3.3.4
+    command: 
+    - --seeds=scylladb
