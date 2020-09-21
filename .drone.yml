@@ -4,12 +4,12 @@ name: default
 
 steps:
   - name: ping scylla
-    image: scylladb/scylla:4.1.6
+    image: scylladb/scylla:3.2.1
     commands:
     - sleep 10
     - cqlsh scylladb
 
 services:
   - name: scylladb
-    image: scylladb/scylla:4.1.6
+    image: scylladb/scylla:3.2.1
     commands: ["--experimental", "1", "--smp", "1", "--cpuset", "1", "--listen-address", "scylladb"]
