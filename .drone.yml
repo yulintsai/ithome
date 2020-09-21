@@ -13,6 +13,8 @@ steps:
     image: mysql
     commands:
     - sleep 5
+    - apt-get update
+    - echo "Y" | apt-get install iputils-ping
     - ping mysqlhost
 
 services:
