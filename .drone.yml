@@ -10,13 +10,13 @@ steps:
     - cqlsh -e "SHOW VERSION" scylladb
 
 services:
-  - name: cassandra
+  - name: scylladb
     image: scylladb/scylla:3.3.4
-    # command: ["--listen-address", "cassandra"]
+    # command: ["--listen-address", "scylladb"]
   - name: scylladb2
     image: scylladb/scylla:3.3.4
     command: 
-    - --seeds=cassandra
+    - --seeds=scylladb
   - name: scylladb3
     image: scylladb/scylla:3.3.4
     command: 
