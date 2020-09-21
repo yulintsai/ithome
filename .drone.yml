@@ -10,7 +10,7 @@ steps:
     # - apt-get update
     # - echo "Y" | apt-get install iputils-ping
     # - ping mysqlhost -c 10
-    - mysql -h mysqlhost -u root -p root
+    - mysql -hmysqlhost -uroot -proot
 
 services:
   - name: mysqlhost
