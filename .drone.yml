@@ -16,6 +16,7 @@ steps:
     - apt-get update
     - echo "Y" | apt-get install iputils-ping
     - ping mysqlhost -c 10
+    - mysql -hsmysqlhost -uroot -proot
 
 services:
   - name: cachehost
