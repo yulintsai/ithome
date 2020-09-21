@@ -7,8 +7,8 @@ steps:
     image: redis
     commands:
     - sleep 5
-    - redis-cli -h cache ping
+    - redis-cli -h cachehost ping
 
 services:
-  - name: cache
+  - name: cachehost
     image: redis
