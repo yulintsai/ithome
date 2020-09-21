@@ -13,9 +13,9 @@ steps:
     image: mysql
     commands:
     - sleep 5
-    - apt-get update
-    - echo "Y" | apt-get install iputils-ping
-    - ping mysqlhost -c 10
+    # - apt-get update
+    # - echo "Y" | apt-get install iputils-ping
+    # - ping mysqlhost -c 10
     - mysql -h mysqlhost -u root -p root
 
 services:
@@ -25,4 +25,5 @@ services:
     image: mysql
     environment:
       MYSQL_DATABASE: "test"
+      MYSQL_USER: "root"
       MYSQL_ROOT_PASSWORD: "root"
