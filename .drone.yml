@@ -7,7 +7,7 @@ steps:
     image: scylladb/scylla:4.1.6
     commands:
     - sleep 10
-    - cqlsh
+    - cqlsh scylladb
 
 services:
   - name: scylladb
