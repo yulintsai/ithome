@@ -3,31 +3,13 @@ type: docker
 name: default
 
 steps:
-- name: ping nsq
-  image: curlimages/curl:7.71.1
-  commands:
+  - name: ping
+    image: redis
+    detach: true
+    commands:
     - sleep 5
-    - curl nsqd:4151/ping
-    - curl nsqlookupd:4161/ping
-    - curl nsqadmin:4171/ping
+    - redis-cli -h cachehost ping
 
 services:
-- name: nsqlookupd
-  image: nsqio/nsq
-  command: ["/nsqlookupd"]
-  ports: [4160,4161]
-
-- name: nsqd
-  image: nsqio/nsq
-  command: ["/nsqd", "--lookupd-tcp-address=nsqlookupd:4160"]
-  depends_on:
-  - nsqlookupd
-  ports: [4150,4151]
-
-- name: nsqadmin
-  image: nsqio/nsq
-  command: ["/nsqadmin", "--lookupd-http-address=nsqlookupd:4161"]
-  depends_on:
-  - nsqlookupd
-  - nsqd
-  ports: [4171]
+  - name: cachehost
+    image: redis
