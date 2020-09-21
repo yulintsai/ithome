@@ -3,24 +3,16 @@ type: docker
 name: default
 
 steps:
-  - name: ping redis
-    image: redis
-    commands:
-    - sleep 5
-    - redis-cli -h cachehost ping
-
   - name: ping mysql
     image: mysql
     commands:
-    - sleep 5
+    - sleep 10
     # - apt-get update
     # - echo "Y" | apt-get install iputils-ping
     # - ping mysqlhost -c 10
     - mysql -h mysqlhost -u root -p root
 
 services:
-  - name: cachehost
-    image: redis
   - name: mysqlhost
     image: mysql
     environment:
