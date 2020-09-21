@@ -7,7 +7,7 @@ steps:
     image: alpine:3.11.6
     commands:
     - sleep 10
-    - apk update &＆ apk --no-cache add iputils-ping
+    - apk update && apk --no-cache add iputils-ping
     - ping scylladb -c 10
 
 services:
