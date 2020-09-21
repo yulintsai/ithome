@@ -3,15 +3,14 @@ type: docker
 name: default
 
 steps:
-  - name: ping mysql
-    image: mysql:5.5
+  - name: ping scylla
+    image: scylladb/scylla:4.1.6
     commands:
     - sleep 10
-    - mysql -hmysqlhost -uroot -proot
+    - apt-get update
+    - echo "Y" | apt-get install iputils-ping
+    - ping scylladb -c 10
 
 services:
-  - name: mysqlhost
-    image: mysql:5.5
-    environment:
-      MYSQL_DATABASE: "test"
-      MYSQL_ROOT_PASSWORD: "root"
+  - name: scylladb
+    image: scylladb/scylla:4.1.6
