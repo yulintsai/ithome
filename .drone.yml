@@ -1,23 +1,12 @@
 kind: pipeline
-type: docker
 name: default
 
 steps:
-  - name: ping mysql
-    image: mysql:5.5
-    commands:
-    - sleep 10
-    - mysql -hmysqlhost -uroot -proot
+- name: cache
+  image: redis
+  detach: true
 
-  - name: detach test
-    image: mysql:5.5
-    detach: true
-    commands:
-    - echo "hihihi detach is true"
-
-services:
-  - name: mysqlhost
-    image: mysql:5.5
-    environment:
-      MYSQL_DATABASE: "test"
-      MYSQL_ROOT_PASSWORD: "root"
+- name: ping
+  image: redis
+  commands:
+  - redis-cli -h cache ping
