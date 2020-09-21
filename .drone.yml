@@ -4,21 +4,21 @@ name: default
 
 steps:
   - name: ping scylla
-    image: scylladb/scylla:3.3.4
+    image: cassandra:3.3.4
     commands:
     - sleep 50
     - cqlsh -e "SHOW VERSION" scylladb
 
 services:
-  - name: scylladb
-    image: scylladb/scylla:3.3.4
+  - name: cassandra
+    image: cassandra:3.0
 
-  - name: scylladb2
-    image: scylladb/scylla:3.3.4
+  - name: cassandra2
+    image: cassandra:3.3.4
     command: 
-    - --seeds=scylladb
+    - --seeds=cassandra
 
-  - name: scylladb3
-    image: scylladb/scylla:3.3.4
+  - name: cassandra3
+    image: cassandra:3.3.4
     command: 
-    - --seeds=scylladb
+    - --seeds=cassandra
