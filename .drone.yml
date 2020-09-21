@@ -3,13 +3,16 @@ type: docker
 name: default
 
 steps:
-  - name: ping
-    image: redis
+  - name: ping mysql
+    image: mysql:5.5
     detach: true
     commands:
-    - sleep 5
-    - redis-cli -h cachehost ping
+    - sleep 10
+    - mysql -hmysqlhost -uroot -proot
 
 services:
-  - name: cachehost
-    image: redis
+  - name: mysqlhost
+    image: mysql:5.5
+    environment:
+      MYSQL_DATABASE: "test"
+      MYSQL_ROOT_PASSWORD: "root"
