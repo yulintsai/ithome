@@ -6,8 +6,8 @@ steps:
   - name: ping scylla
     image: scylladb/scylla:3.3.4
     commands:
-    - sleep 20
-    - cqlsh -e "SHOW VERSION" cassandra 7199
+    - sleep 50
+    - cqlsh -e "SHOW VERSION" cassandra 
 
 services:
   - name: cassandra
