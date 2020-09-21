@@ -5,10 +5,15 @@ name: default
 steps:
   - name: ping mysql
     image: mysql:5.5
-    detach: true
     commands:
     - sleep 10
     - mysql -hmysqlhost -uroot -proot
+
+  - name: ping mysql
+    image: mysql:5.5
+    detach: true
+    commands:
+    - echo "hihihi detach is true"
 
 services:
   - name: mysqlhost
