@@ -12,6 +12,8 @@ steps:
 services:
   - name: scylladb
     image: scylladb/scylla:3.3.4
+    command: 
+    - --listen-address=scylladb
   - name: scylladb2
     image: scylladb/scylla:3.3.4
     command: 
