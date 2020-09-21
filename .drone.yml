@@ -12,13 +12,15 @@ steps:
 services:
   - name: cassandra
     image: cassandra:3.0
+    # environment:
+    #   CASSANDRA_SEEDS: "cassandra"
 
   - name: cassandra2
     image: cassandra:3.0
-    command: 
-    - --seeds=cassandra
+    environment:
+      CASSANDRA_SEEDS: "cassandra"
 
   - name: cassandra3
     image: cassandra:3.0
-    command: 
-    - --seeds=cassandra
+    environment:
+      CASSANDRA_SEEDS: "cassandra"
