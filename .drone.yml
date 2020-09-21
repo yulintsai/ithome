@@ -8,16 +8,16 @@ steps:
     commands:
     - sleep 50
     - cqlsh -e "SHOW VERSION" scylladb
-    - cqlsh -e "SHOW VERSION" scylladb2
-    - cqlsh -e "SHOW VERSION" scylladb3
 
 services:
   - name: scylladb
     image: scylladb/scylla:3.3.4
+
   - name: scylladb2
     image: scylladb/scylla:3.3.4
     command: 
     - --seeds=scylladb
+
   - name: scylladb3
     image: scylladb/scylla:3.3.4
     command: 
