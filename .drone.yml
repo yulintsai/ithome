@@ -4,11 +4,10 @@ name: default
 
 steps:
   - name: ping scylla
-    image: mysql:5.5
+    image: scylladb/scylla:4.1.6
     commands:
     - sleep 10
-    - apk update && apk --no-cache add iputils-ping
-    - ping scylladb -c 10
+    - cqlsh
 
 services:
   - name: scylladb
