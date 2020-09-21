@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-- name: "ping nsq"
+- name: ping nsq
   image: curlimages/curl:7.71.1
   commands:
     - sleep 5
