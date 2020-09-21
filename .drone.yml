@@ -7,8 +7,7 @@ steps:
     image: alpine:3.11.6
     commands:
     - sleep 10
-    - apt-get update
-    - echo "Y" | apt-get install iputils-ping
+    - apk --no-cache add iputils-ping
     - ping scylladb -c 10
 
 services:
