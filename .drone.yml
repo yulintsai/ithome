@@ -10,8 +10,12 @@ steps:
 
   - name: gcp_push_image
     image: docker:dind
+    volumes:
+    - name: docker
+      path: /var/run/docker.sock
     commands:
     - docker build --no-cache --pull --force-rm -t ithome/${DRONE_REPO_NAME}:latest -f go.dockerfile .
+    
 
 volumes:
 - name: docker
