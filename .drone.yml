@@ -1,12 +1,9 @@
 kind: pipeline
+type: docker
 name: default
 
 steps:
-- name: cache
-  image: redis
-  detach: true
-
-- name: ping
-  image: redis
-  commands:
-  - redis-cli -h cache ping
+  - name: golangci-lint
+    image: golangci/golangci-lint:v1.31.0-alpine
+    commands:
+      - golangci-lint run
