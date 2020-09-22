@@ -1,8 +1,7 @@
-# build stage
-FROM golang
+FROM golang:1.14
 
 WORKDIR /ithome
-ADD . /ithome
-RUN cd /ithome && go build
+COPY . /ithome
+RUN cd /ithome && go build -race
 
 CMD ["./ithome"]
