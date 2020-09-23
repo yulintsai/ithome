@@ -13,4 +13,9 @@ steps:
       from_secret: telegram_token
     to: 
       from_secret: telegram_to
-    message: send message ${DRONE_REPO_LINK}
+    message: >
+       {{#success build.status}}
+         build {{build.number}} succeeded. Good job. ${DRONE_REPO_LINK}
+       {{else}}
+         build {{build.number}} send message ${DRONE_REPO_LINK}. Fix me please.
+       {{/success}}
