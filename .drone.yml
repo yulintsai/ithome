@@ -13,4 +13,4 @@ steps:
       from_secret: telegram_token
     to: 
       from_secret: telegram_to
-    message: send message
+    message: send message ${DRONE_REPO_LINK}
