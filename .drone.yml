@@ -2,9 +2,6 @@ kind: pipeline
 type: docker
 name: pipeline-01
 
-clone:
-  disable: true
-
 steps:
 - name: send telegram notification
   image: golang
