@@ -7,5 +7,5 @@ steps:
   image: golang
   commands:
   - echo ${DRONE_COMMIT_SHA}
-  - echo ${DRONE_COMMIT_SHA:10}
-  - echo ${DRONE_COMMIT_SHA:8}
+  - echo ${DRONE_COMMIT_SHA:0:10}
+  - echo ${DRONE_COMMIT_SHA:0:8}
