@@ -1,9 +1,9 @@
 kind: pipeline
 type: docker
-name: linter
+name: ithome_telegram_webhook
 
 steps:
-- name: alert_production_ci
+- name: ithome_alert
   detach: true
   image: appleboy/drone-telegram
   settings:
