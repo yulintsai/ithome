@@ -10,4 +10,4 @@ steps:
       from_secret: telegram_token
     to: 
       from_secret: telegram_to
-    message: "【溫馨提醒】動作開始!!"
+    message: "【溫馨提醒】〖ITHOME〗【鐵人賽】 發文動作開始!!"
