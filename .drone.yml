@@ -4,7 +4,6 @@ name: ithome_telegram_webhook
 
 steps:
 - name: ithome_alert
-  detach: true
   image: appleboy/drone-telegram:v1.3.8
   settings:
     token: 
