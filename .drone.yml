@@ -4,7 +4,7 @@ name: ithome_telegram_webhook
 
 steps:
 - name: ithome_alert
-  image: appleboy/drone-telegram:v1.3.8
+  image: appleboy/drone-telegram:v1.3.5
   settings:
     token: 
       from_secret: telegram_token
